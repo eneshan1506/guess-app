@@ -23,6 +23,7 @@
 
 "use client";
 
+import Image from "next/image";
 import { useQuery } from "@tanstack/react-query";
 import { getMessagesAction } from "@/actions/messages";
 import type { GuestMessage } from "@/types";
@@ -151,10 +152,13 @@ export default function MessageList() {
               {msg.fileType?.startsWith("image/") ? (
                 // Resim — Inline göster
                 <div className="overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700">
-                  <img
+                  <Image
                     src={msg.fileUrl}
                     alt={msg.fileName || "Ek resim"}
-                    className="w-full max-h-80 object-cover"
+                    width={1200}
+                    height={720}
+                    sizes="(max-width: 768px) 100vw, 42rem"
+                    className="h-auto w-full max-h-80 object-cover"
                     loading="lazy"
                   />
                 </div>

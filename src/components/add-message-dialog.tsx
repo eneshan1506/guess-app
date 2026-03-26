@@ -16,6 +16,7 @@
 
 "use client";
 
+import Image from "next/image";
 import { useState, useRef } from "react";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -291,10 +292,13 @@ export default function AddMessageDialog() {
             {/* Resim Önizleme */}
             {filePreview && (
               <div className="mt-3 overflow-hidden rounded-xl border border-zinc-200 dark:border-zinc-700">
-                <img
+                <Image
                   src={filePreview}
                   alt="Önizleme"
-                  className="w-full max-h-48 object-cover"
+                  width={800}
+                  height={320}
+                  unoptimized
+                  className="h-auto w-full max-h-48 object-cover"
                 />
               </div>
             )}
